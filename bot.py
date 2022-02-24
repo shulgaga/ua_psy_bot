@@ -66,16 +66,6 @@ def get_help(update, context):
             photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-49-44.jpg", 'rb'),
             caption='Камила, Психология ~ Психосоматика @kamila_sokolova'
         )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_14-19-57.jpg", 'rb'),
-            caption='Evgenia Ushakova, психолог @Victoriya_lebedeva_psy'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-27-54.jpg", 'rb'),
-            caption='Виктория Лебедева, психосоматика @Victoriya_lebedeva_psy'
-        )
 
 
 def main():
