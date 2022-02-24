@@ -1,7 +1,6 @@
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Updater, CallbackContext, MessageHandler, CommandHandler
 from telegram.ext import Filters
-from text import text
 
 
 def main_keyboard():
