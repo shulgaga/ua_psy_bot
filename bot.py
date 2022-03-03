@@ -1,3 +1,4 @@
+from glob import glob
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Updater, CallbackContext, MessageHandler, CommandHandler
 from telegram.ext import Filters
@@ -10,72 +11,18 @@ def main_keyboard():
 
 def great_user(update: Update, callback: CallbackContext):
     update.message.reply_text(text='Привет! Мы оказываем профессиональную психологическую помощь людям, '
-                                   'которые оказались заложниками ситуации в связи с военными действиями на'
+                                   'которые оказались заложниками ситуации, в связи с военными действиями на'
                                    ' территории Украины.', reply_markup=main_keyboard())
 
 
 def get_help(update, context):
-   # update.message.reply_text()
-    context.bot.send_photo(
-        chat_id=update.message.chat_id,
-        photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-27-54.jpg", 'rb'),
-        caption='Виктория Лебедева, психосоматика @Victoriya_lebedeva_psy'
-    )
-    context.bot.send_photo(
-        chat_id=update.message.chat_id,
-        photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-27-46.jpg", 'rb'),
-        caption='Ольга Николенко, психолог @nik_olyashka'
-    )
-    context.bot.send_photo(
-        chat_id=update.message.chat_id,
-        photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-27-48.jpg", 'rb'),
-        caption='Oksana Bilenko, Специалист по психосоматике PSY 2.0 @oksanabilenko'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-27-50.jpg", 'rb'),
-            caption='Анастасия Сехина, психолог @sekhina'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-27-52.jpg", 'rb'),
-            caption='Екатерина, психолог @eliseeva_psy'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-27-53.jpg", 'rb'),
-            caption='Алена, психолог @elena_tkachen'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-49-39.jpg", 'rb'),
-            caption='Olya Iv, психолог @oli_iordan'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-49-41.jpg", 'rb'),
-            caption='Mariia Sineokova, психолог @tripmasha'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-49-42.jpg", 'rb'),
-            caption='Karina, психолог @Karina9876'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-49-44.jpg", 'rb'),
-            caption='Камила, Психология ~ Психосоматика @kamila_sokolova'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_14-19-57.jpg", 'rb'),
-            caption='Evgenia Ushakova, психолог @Victoriya_lebedeva_psy'
-        )
-    context.bot.send_photo(
-            chat_id=update.message.chat_id,
-            photo=open(r"C:\Users\user\PycharmProjects\PsyUaBot\photo\photo_2022-02-24_13-27-54.jpg", 'rb'),
-            caption='Виктория Лебедева, психосоматика @Victoriya_lebedeva_psy'
-        )
+    for filename in glob(".\photo\*.jpg"):
+        url = filename
+        context.bot.send_photo(
+            chat_id=update.message.chat_id, 
+            photo=open(url, 'rb'), 
+            caption=filename[8:-4]
+            )
 
 
 def main():
