@@ -5,7 +5,7 @@ from text import text
 
 
 def main_keyboard():
-    return ReplyKeyboardMarkup([['Получить бесплатную психологическую помощь']], resize_keyboard=True)
+    return ReplyKeyboardMarkup([['ПОЛУЧИТЬ БЕСПЛАТНУЮ ПСИХОЛОГИЧЕСКУЮ ПОМОЩЬ']], resize_keyboard=True)
 
 
 def great_user(update: Update, callback: CallbackContext):
@@ -84,7 +84,7 @@ def main():
         use_context=True
     )
     updater.dispatcher.add_handler(CommandHandler('start', great_user))
-    updater.dispatcher.add_handler(MessageHandler(Filters.regex('^(Получить бесплатную психологическую помощь)$'), get_help))
+    updater.dispatcher.add_handler(MessageHandler(Filters.regex('^(ПОЛУЧИТЬ БЕСПЛАТНУЮ ПСИХОЛОГИЧЕСКУЮ ПОМОЩЬ)$'), get_help))
 
     updater.start_polling()
     updater.idle()
